@@ -50,5 +50,5 @@ def post_comentario(bar_id: int, datos: dict):
 def post_eventos(bar_id : int, datos: dict):
     datos["bar_id"] = bar_id
     datos["fecha_creacion"] = datetime.now().isoformat()
-    db["comentarios"].insert_one(datos)
+    db["eventos"].insert_one(datos)
     return {"mensaje":"Evento insertado con exito"}
