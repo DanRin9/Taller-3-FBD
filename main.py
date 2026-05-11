@@ -40,14 +40,14 @@ def post_comentario(bar_id: int, datos: dict):
     db["comentarios"].insert_one(datos)
     return {'mensaje': 'Comentario guardado'}
 
-# TODO: implementar GET /bares/{bar_id}/eventos
+# implementar GET /bares/{bar_id}/eventos
 # Debe retornar todos los eventos del bar desde la colección 'eventos'
 @app.get('/bares/{bar_id}/eventos')
 def get_eventos_bar(bar_id: int):
     eventos = list(db["eventos"].find({"bar_id": bar_id}, {"_id": 0}))
     return eventos
 
-# TODO: implementar POST /bares/{bar_id}/eventos  
+# implementar POST /bares/{bar_id}/eventos  
 # Debe insertar el evento en la colección 'eventos'
 # Recuerde agregar bar_id y fecha_creacion al documento antes de insertar
 @app.post('/bares/{bar_id}/eventos')
